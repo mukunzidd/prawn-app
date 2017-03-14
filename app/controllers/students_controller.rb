@@ -10,6 +10,15 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = StudentPdf.new(@student)
+        send_data pdf.render, filename: "Student_#{@student.id}_resume.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end
   end
 
   # GET /students/new

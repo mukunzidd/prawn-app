@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<h1><%= link_to 'View PDF', "/students/#{@student.id}.pdf", target: "_blank" %></h1>
 <p>
   <strong>First name:</strong>
   <%= @student.first_name %>
