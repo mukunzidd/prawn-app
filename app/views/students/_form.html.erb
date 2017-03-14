@@ -1,0 +1,72 @@
+<%= form_for(student) do |f| %>
+  <% if student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+      <% student.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :short_bio %>
+    <%= f.text_field :short_bio %>
+  </div>
+
+  <div class="field">
+    <%= f.label :linkedin_url %>
+    <%= f.text_field :linkedin_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :twitter_handle %>
+    <%= f.text_field :twitter_handle %>
+  </div>
+
+  <div class="field">
+    <%= f.label :website_url %>
+    <%= f.text_field :website_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :online_resume_url %>
+    <%= f.text_field :online_resume_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :github_url %>
+    <%= f.text_field :github_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :photo_url %>
+    <%= f.text_field :photo_url %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
