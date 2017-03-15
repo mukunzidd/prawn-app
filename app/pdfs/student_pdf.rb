@@ -12,6 +12,7 @@ class StudentPdf < Prawn::Document
 			student_info
 			profile_title
 			profile_content
+			skills
 			experience
 			social
 		# end
@@ -30,12 +31,10 @@ class StudentPdf < Prawn::Document
 		image open(@student.photo_url), :width => 100, :at => [400, 650]
 	end
 
-
 	def profile_title
 		move_down 30
-		fill_color "00bbdd"
-		font_color(18) do
-			text "PROFILE", style: :bold
+		font_size(18) do
+			text "PROFILE", style: :bold, color: "00bbdd"
 		end
 		stroke do
 			stroke_color "00bbdd"
@@ -46,20 +45,106 @@ class StudentPdf < Prawn::Document
 	end
 	
 	def profile_content
-		text "Date available to work: **/**/**", style: :bold
-		text "I am affable and forward thinking with a passion for life and the people that live it. (CHANGE!)"
+		move_down 10
+		text "Date available to work: **/**/**", style: :bold, size: 16
+		move_down 5
+		text "I am affable and forward thinking with a passion for life and the people that live it. (CHANGE!)", size: 16
 	end
 
 	def experience
-		# Bimwe bose		
+		move_down 30
+		font_size(18) do
+			text "EXPERIENCE", style: :bold, color: "00bbdd"
+		end
+
+
+		stroke do
+			stroke_color "00bbdd"
+			move_down 10
+			horizontal_line 0, 550
+			move_down 10
+		end
+
+		# Experience 1
+		move_down 15
+		font_size(18) do
+			text "Experice 1 Position", style: :bold
+		end
+
+		move_down 10
+		text "Company | City | Year", style: :italic, size: 15, color: "7d7d7d"
+		move_down 15
+		text "CookedLife is a web app for people who are interested in everyday recipes and meals. It is a platform for people to find new and interesting recipes as well as post.", size: 16
+
+		# Experience 2
+		move_down 15
+		font_size(18) do
+			text "Experice 2 Position", style: :bold
+		end
+
+		move_down 10
+		text "Company | City | Year", style: :italic, size: 15, color: "7d7d7d"
+		move_down 15
+		text "CookedLife is a web app for people who are interested in everyday recipes and meals. It is a platform for people to find new and interesting recipes as well as post their own culinary creations.", size: 16
 	end
 
 	def social
 		# Bimwe bose		
 	end
 
-	def method_name
-		
-	end
+	def skills
+		move_down 30
+		font_size(18) do
+			text "SKILLS", style: :bold, color: "00bbdd"
+		end
 
+
+		stroke do
+			stroke_color "00bbdd"
+			move_down 10
+			horizontal_line 0, 550
+			move_down 10
+		end
+
+		# Skill 1
+		move_down 15
+		font_size(18) do
+			text "HTML 5", style: :bold
+		end
+
+		move_down 10
+		text "Talk about your skill", style: :italic, size: 15, color: "7d7d7d"
+		move_down 15
+
+		# Skill 1
+		move_down 15
+		font_size(18) do
+			text "Javascript", style: :bold
+		end
+
+		move_down 10
+		text "Talk about your JS skills", style: :italic, size: 15, color: "7d7d7d"
+		move_down 15
+
+		# Skill 
+		move_down 15
+		font_size(18) do
+			text "CSS 3", style: :bold
+		end
+
+		move_down 10
+		text "Talk about your styling skills", style: :italic, size: 15, color: "7d7d7d"
+		move_down 15
+
+		# Skill 
+		move_down 15
+		font_size(18) do
+			text "DATABASES", style: :bold
+		end
+
+		move_down 10
+		text "Talk about your databases skills", style: :italic, size: 15, color: "7d7d7d"
+		move_down 15
+
+	end
 end
