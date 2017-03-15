@@ -1,30 +1,29 @@
 class StudentPdf < Prawn::Document
 	def initialize(student)
 		super(top_margin: 50)
-		canvas do
-			fill_circle [bounds.left, bounds.top], 30
-			fill_circle [bounds.right, bounds.top], 30
-			fill_circle [bounds.right, bounds.bottom], 30
-			fill_circle [0, 0], 30
+		# canvas do
+		# 	fill_circle [bounds.left, bounds.top], 30
+		# 	fill_circle [bounds.right, bounds.top], 30
+		# 	fill_circle [bounds.right, bounds.bottom], 30
+		# 	fill_circle [0, 0], 30
 
 			@student = student
 			student_info
-			contact
-			image open(@student.photo_url), :width => 100 
 			profile
 			experience
 			social
-		end
+		# end
 	end
 
 	def student_info
-		text "#{@student.first_name} #{@student.last_name}", size: 30, style: :bold, align: :center
+		text_box "RESUME", style: :italic, align: :center, size: 30, :at => [0, 200]
+		text_box "#{@student.first_name} #{@student.last_name}", size: 30, style: :bold, align: :center
+		text_box "Email: #{@student.email}", size: 20, style: :italic, align: :center
+		text_box "Tel: #{@student.phone_number}", size: 16, style: :italic, align: :center
+
+		image open(@student.photo_url), :width => 100, :at => [300, 700]
 	end
 
-	def contact
-		text "Email: #{@student.email}", size: 20, style: :italic, align: :center
-		text "Tel: #{@student.phone_number}", size: 16, style: :italic, align: :center		
-	end
 
 	def profile
 		move_down 30
